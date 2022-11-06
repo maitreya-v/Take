@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    {% for x in tasks %}
+
+    <h1>{{ x.title }}</h1>
+    <img src="http://127.0.0.1:8000/media/{{x.image}}" height="50" />
+    {{x.descript}}
+    <a href="http://127.0.0.1:8000/update/{{x.title}}"
+      ><button>Update</button></a
+    >
+    <a href="http://127.0.0.1:8000/delete/{{x.title}}"
+      ><button>Delete</button></a
+    >
+    {% endfor %}
+    <a href="{%url 'create'%}"><button>Add Tasks</button></a>
+    <span><a href='{% url "logout" %}'>Log Out</a></span>
+  </body>
+</html>
